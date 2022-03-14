@@ -1,0 +1,9 @@
+{% extends 'app-based/base.html' %}
+{% block content %}
+    <h1>Are you sure you want to delete your profile?</h1>
+    <form method="POST" action="{% url 'delete profile page' %}">
+        {% csrf_token %}
+        {{ form }}
+        <button class="button delete-lg">Confirm</button>
+    </form>
+{% endblock %}
