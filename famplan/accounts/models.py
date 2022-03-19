@@ -1,6 +1,8 @@
+import webauthn
 from django.core.validators import MinLengthValidator
 from django.db import models
 from django.contrib.auth import models as models_auth
+from webauthn import generate_registration_options
 
 from famplan.accounts.managers import FamilyUserManager
 
@@ -29,8 +31,6 @@ class FamilyProfile(models.Model):
     LAST_NAME_MIN_LENGTH = 3
     LAST_NAME_MAX_LENGTH = 25
 
-    PARENT = 'Parent'
-    KID = 'Kid'
     first_name = models.CharField(
         max_length=FIRST_NAME_MAX_LENGTH,
         validators=(
