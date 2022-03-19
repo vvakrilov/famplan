@@ -9,6 +9,7 @@ SECRET_KEY = 'django-insecure-k##s*6=&3(uqg^!-byz%4b+%fgljwoz^hff+g%r(6+x0^-kr^a
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
 DJANGO_INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -17,13 +18,16 @@ DJANGO_INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 )
+
 FAMPLAN_APPS = (
     'famplan.main',
     'famplan.accounts',
 )
+
 ADDITIONAL_INSTALLED_APPS = (
 
 )
+# INSTALLED APPS MERGE:
 INSTALLED_APPS = DJANGO_INSTALLED_APPS + FAMPLAN_APPS + ADDITIONAL_INSTALLED_APPS
 
 MIDDLEWARE = [

@@ -1,8 +1,6 @@
-import webauthn
+from django.contrib.auth import models as models_auth
 from django.core.validators import MinLengthValidator
 from django.db import models
-from django.contrib.auth import models as models_auth
-from webauthn import generate_registration_options
 
 from famplan.accounts.managers import FamilyUserManager
 
@@ -26,22 +24,37 @@ class FamilyUser(models_auth.AbstractBaseUser, models_auth.PermissionsMixin):
 
 
 class FamilyProfile(models.Model):
-    FIRST_NAME_MIN_LENGTH = 3
-    FIRST_NAME_MAX_LENGTH = 25
-    LAST_NAME_MIN_LENGTH = 3
-    LAST_NAME_MAX_LENGTH = 25
+    NAME_MIN_LENGTH = 2
+    NAME_MAX_LENGTH = 25
 
     first_name = models.CharField(
-        max_length=FIRST_NAME_MAX_LENGTH,
+        max_length=NAME_MAX_LENGTH,
         validators=(
-            MinLengthValidator(FIRST_NAME_MIN_LENGTH),
+            MinLengthValidator(NAME_MIN_LENGTH),
         ),
     )
-    last_name = models.CharField(
-        max_length=LAST_NAME_MAX_LENGTH,
+
+    surname = models.CharField(
+        max_length=NAME_MAX_LENGTH,
         validators=(
-            MinLengthValidator(LAST_NAME_MIN_LENGTH),
+            MinLengthValidator(NAME_MIN_LENGTH),
         ),
+        null=True,
+        blank=True,
+    )
+
+    last_name = models.CharField(
+        max_length=NAME_MAX_LENGTH,
+        validators=(
+            MinLengthValidator(NAME_MIN_LENGTH),
+        ),
+        null=True,
+        blank=True,
+    )
+
+    phone_number = models.BigIntegerField(
+        null=True,
+        blank=True,
     )
 
     user = models.OneToOneField(
