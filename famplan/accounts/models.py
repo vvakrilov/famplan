@@ -7,7 +7,7 @@ from famplan.accounts.managers import FamilyUserManager
 
 class FamilyUser(models_auth.AbstractBaseUser, models_auth.PermissionsMixin):
     USERNAME_MAX_LEN = 25
-    user_name = models.CharField(
+    username = models.CharField(
         max_length=USERNAME_MAX_LEN,
         unique=True,
         null=False,
@@ -19,11 +19,11 @@ class FamilyUser(models_auth.AbstractBaseUser, models_auth.PermissionsMixin):
     date_joined = models.DateTimeField(
         auto_now_add=True,
     )
-    USERNAME_FIELD = 'Username'
+    USERNAME_FIELD = 'username'
     objects = FamilyUserManager()
 
 
-class Profile(models.Model):
+class FamilyProfile(models.Model):
     FIRST_NAME_MIN_LENGTH = 3
     FIRST_NAME_MAX_LENGTH = 25
     LAST_NAME_MIN_LENGTH = 3
@@ -35,6 +35,12 @@ class Profile(models.Model):
         max_length=FIRST_NAME_MAX_LENGTH,
         validators=(
             MinLengthValidator(FIRST_NAME_MIN_LENGTH),
+        ),
+    )
+    last_name = models.CharField(
+        max_length=LAST_NAME_MAX_LENGTH,
+        validators=(
+            MinLengthValidator(LAST_NAME_MIN_LENGTH),
         ),
     )
 
