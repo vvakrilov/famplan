@@ -1,0 +1,14 @@
+{% extends 'app-based/base.html' %}
+{% block content %}
+
+    <h1>Enter username and password:</h1>
+
+    <div class="form">
+        <form method="POST" action="{% url 'edit profile page' %}">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Edit">
+        </form>
+    </div>
+
+{% endblock %}

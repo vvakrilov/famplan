@@ -1,3 +1,5 @@
+from abc import ABC
+
 from django.contrib.auth import models as models_auth
 from django.core.validators import MinLengthValidator
 from django.db import models

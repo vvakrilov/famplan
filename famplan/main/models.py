@@ -5,13 +5,19 @@ UserModel = get_user_model()
 
 
 class Incomes(models.Model):
-    INCOME_TYPE = 100
+    INC_DICT = {
+        'VER_STR': "Type of income:",
+        'LEN': 100,
+    }
 
-    income = models.PositiveIntegerField()
-    income_type = models.TextField(max_length=INCOME_TYPE, )
-    # author_name = models.
-
-    funds_sum = models.BooleanField(default=False)
+    income = models.PositiveIntegerField(
+        default=0,
+    )
+    income_type = models.CharField(
+        verbose_name=INC_DICT['VER_STR'],
+        max_length=INC_DICT['LEN'],
+    )
+    pay_day = models.DateTimeField()
     object = models.ForeignKey(UserModel, on_delete=models.CASCADE)
 
 
