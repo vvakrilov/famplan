@@ -1,10 +1,10 @@
-{% extends 'app-based/base.html' %}
+{% extends 'base/base.html' %}
 {% block content %}
 
-    <h1>Enter username and password:</h1>
+    <h1>Enter your new data</h1>
 
     <div class="form">
-        <form method="POST" action="{% url 'edit profile page' %}">
+        <form method="POST" action="{% url 'edit profile page' %}" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form }}
             <input type="submit" value="Edit">

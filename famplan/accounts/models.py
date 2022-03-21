@@ -12,8 +12,6 @@ class FamilyUser(models_auth.AbstractBaseUser, models_auth.PermissionsMixin):
     username = models.CharField(
         max_length=USERNAME_MAX_LEN,
         unique=True,
-        null=False,
-        blank=False,
     )
     is_staff = models.BooleanField(
         default=False,
@@ -25,7 +23,7 @@ class FamilyUser(models_auth.AbstractBaseUser, models_auth.PermissionsMixin):
     objects = FamilyUserManager()
 
 
-class FamilyProfile(models.Model):
+class FamilyUserProfile(models.Model):
     NAME_MIN_LENGTH = 2
     NAME_MAX_LENGTH = 25
 
@@ -35,7 +33,6 @@ class FamilyProfile(models.Model):
             MinLengthValidator(NAME_MIN_LENGTH),
         ),
     )
-
     surname = models.CharField(
         max_length=NAME_MAX_LENGTH,
         validators=(
@@ -44,7 +41,6 @@ class FamilyProfile(models.Model):
         null=True,
         blank=True,
     )
-
     last_name = models.CharField(
         max_length=NAME_MAX_LENGTH,
         validators=(
@@ -53,15 +49,19 @@ class FamilyProfile(models.Model):
         null=True,
         blank=True,
     )
-
     phone_number = models.BigIntegerField(
         null=True,
         blank=True,
     )
-
     user = models.OneToOneField(
         FamilyUser,
         on_delete=models.CASCADE,
         primary_key=True,
-
     )
+
+    @property
+    def first_n_last_user_names(self):
+        return f'{self.first_name} {self.last_name}'
+
+    def __str__(self):
+        return self.first_n_last_user_names
