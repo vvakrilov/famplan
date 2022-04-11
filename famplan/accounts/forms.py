@@ -28,8 +28,9 @@ class CreateProfileForm(BootstrapFormMixin, auth_forms.UserCreationForm):
 
         profile = UserProfile(
             first_name=self.cleaned_data['first_name'],
+            surname=self.cleaned_data['surname'],
             last_name=self.cleaned_data['last_name'],
-            picture=self.cleaned_data['picture'],
+            phone_number=self.cleaned_data['phone_number'],
             date_of_birth=self.cleaned_data['date_of_birth'],
             description=self.cleaned_data['description'],
             email=self.cleaned_data['email'],

@@ -48,6 +48,7 @@ class UserProfile(models.Model):
         null=True,
         blank=True,
     )
+    date_of_birth
     user = models.OneToOneField(
         AppUser,
         on_delete=models.CASCADE,
