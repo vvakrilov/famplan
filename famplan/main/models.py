@@ -4,25 +4,37 @@ from django.db import models
 UserModel = get_user_model()
 
 
-class Incomes(models.Model):
-    INC_DICT = {
-        'VER_STR': "Type of income:",
-        'LEN': 100,
-    }
-
-    income = models.PositiveIntegerField(
+class Funds(models.Model):
+    value_amount = models.PositiveIntegerField(
         default=0,
     )
-    income_type = models.CharField(
-        verbose_name=INC_DICT['VER_STR'],
-        max_length=INC_DICT['LEN'],
-    )
-    pay_day = models.DateTimeField()
+    date_added = models.DateTimeField()
     object = models.ForeignKey(UserModel, on_delete=models.CASCADE)
 
+    class Meta:
+        abstract = True
 
-class Expenses(models.Model):
-    pass
+
+class Incomes(Funds):
+    INCOMES = {
+        'VERBOSE': "Type of income:",
+        'LENGTH': 100,
+    }
+    funds_type = models.CharField(
+        verbose_name=INCOMES['VERBOSE'],
+        max_length=INCOMES['LENGTH'],
+    )
+
+
+class Expenses(Funds):
+    EXPENSES = {
+        'VERBOSE': "Type of expenses:",
+        'LENGTH': 100,
+    }
+    funds_type = models.CharField(
+        verbose_name=EXPENSES['VERBOSE'],
+        max_length=EXPENSES['LENGTH'],
+    )
 
 
 class Schedule(models.Model):

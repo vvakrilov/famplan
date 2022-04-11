@@ -18,17 +18,16 @@ DJANGO_INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 )
-
-FAMPLAN_APPS = (
-    'famplan.main',
+PROJECT_INSTALLED_APPS = (
+    'famplan.auth_app',
     'famplan.accounts',
+    'famplan.main',
 )
-
 ADDITIONAL_INSTALLED_APPS = (
 
 )
-# INSTALLED APPS MERGE:
-INSTALLED_APPS = DJANGO_INSTALLED_APPS + FAMPLAN_APPS + ADDITIONAL_INSTALLED_APPS
+# INSTALLED APPS MERGING:
+INSTALLED_APPS = DJANGO_INSTALLED_APPS + PROJECT_INSTALLED_APPS + ADDITIONAL_INSTALLED_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -60,22 +59,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'famplan.wsgi.application'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'famplan_db',
-        'USER': 'postgres',
-        'PASSWORD': '123QWEasd',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'famplan_db',
+#         'USER': 'postgres',
+#         'PASSWORD': '123QWEasd',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     },
+# }
 
 CACHES = {
     'default': {
@@ -115,7 +114,7 @@ STATICFILES_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'accounts.FamilyUser'
+AUTH_USER_MODEL = 'auth_app.AppUser'
 
 LOGIN_URL = reverse_lazy('login user')
 

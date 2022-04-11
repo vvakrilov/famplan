@@ -1,13 +1,9 @@
-from abc import ABC
-
 from django.contrib.auth import models as models_auth
 from django.core.validators import MinLengthValidator
 from django.db import models
 
-from famplan.accounts.managers import FamilyUserManager
 
-
-class FamilyUser(models_auth.AbstractBaseUser, models_auth.PermissionsMixin):
+class AppUser(models_auth.AbstractBaseUser, models_auth.PermissionsMixin):
     USERNAME_MAX_LEN = 25
     username = models.CharField(
         max_length=USERNAME_MAX_LEN,
@@ -20,10 +16,9 @@ class FamilyUser(models_auth.AbstractBaseUser, models_auth.PermissionsMixin):
         auto_now_add=True,
     )
     USERNAME_FIELD = 'username'
-    objects = FamilyUserManager()
 
 
-class FamilyUserProfile(models.Model):
+class UserProfile(models.Model):
     NAME_MIN_LENGTH = 2
     NAME_MAX_LENGTH = 25
 
@@ -54,7 +49,7 @@ class FamilyUserProfile(models.Model):
         blank=True,
     )
     user = models.OneToOneField(
-        FamilyUser,
+        AppUser,
         on_delete=models.CASCADE,
         primary_key=True,
     )
