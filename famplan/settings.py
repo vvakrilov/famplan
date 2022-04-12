@@ -1,10 +1,11 @@
 from pathlib import Path
 
 from django.urls import reverse_lazy
+from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-from decouple import config
+
 
 SECRET_KEY = config("SECRET_KEY")
 
@@ -21,7 +22,6 @@ DJANGO_INSTALLED_APPS = (
     'django.contrib.staticfiles',
 )
 PROJECT_INSTALLED_APPS = (
-    'famplan.auth_app',
     'famplan.accounts',
     'famplan.main',
 )
@@ -116,9 +116,9 @@ STATICFILES_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'auth_app.AppUser'
+AUTH_USER_MODEL = 'accounts.AppUser'
 
-LOGIN_URL = reverse_lazy('login user')
+LOGIN_URL = reverse_lazy('index')
 
 # PASSWORD_HASHERS = [
 #     'django.contrib.auth.hashers.PBKDF2PasswordHasher',

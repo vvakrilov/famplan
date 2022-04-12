@@ -1,5 +1,14 @@
 from django import forms
 
+from famplan.accounts.models import UserProfile
+
+
+def get_profile():
+    profile = UserProfile.objects.all()
+    if profile:
+        return profile[0]
+    return None
+
 
 class BootstrapFormMixin:
     fields = {}

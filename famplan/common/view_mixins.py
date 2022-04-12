@@ -1,9 +1,9 @@
 from django.shortcuts import redirect
 
 
-class RedirectToOverview:
+class RedirectToDashboard:
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect('overview')
+            return redirect('dashboard')
 
         return super().dispatch(request, *args, **kwargs)

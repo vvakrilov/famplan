@@ -5,8 +5,9 @@ UserModel = get_user_model()
 
 
 class Funds(models.Model):
-    value_amount = models.PositiveIntegerField(
+    funds_amount = models.DecimalField(
         default=0,
+        decimal=2,
     )
     date_added = models.DateTimeField()
     object = models.ForeignKey(UserModel, on_delete=models.CASCADE)

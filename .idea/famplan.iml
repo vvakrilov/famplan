@@ -25,10 +25,7 @@
     <orderEntry type="library" name="@popperjs/core" level="application" />
     <orderEntry type="library" name="@popperjs/core" level="application" />
     <orderEntry type="library" name="bootstrap" level="application" />
-  </component>
-  <component name="PackageRequirementsSettings">
-    <option name="removeUnused" value="true" />
-    <option name="modifyBaseFiles" value="true" />
+    <orderEntry type="library" name="@popperjs/core" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
