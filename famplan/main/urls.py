@@ -1,7 +1,7 @@
 from django.urls import path
 
-from . import views
+from famplan.main import views
 
-urlpatterns = (
+urlpatterns = [
     path('', views.IndexPage.as_view(), name='index'),
-)
+]

@@ -6,4 +6,4 @@ class AccountsConfig(AppConfig):
     name = 'famplan.accounts'
 
     def ready(self):
-        import users.signals # noqa
+        import famplan.accounts.signals # noqa

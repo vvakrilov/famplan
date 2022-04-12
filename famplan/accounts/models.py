@@ -1,7 +1,9 @@
 from django.contrib.auth import models as models_auth
+
 from django.core.validators import MinLengthValidator
 from django.db import models
 
+from famplan.accounts.managers import AppUserManager
 from famplan.common.validators import validate_only_letters
 
 
@@ -18,6 +20,7 @@ class AppUser(models_auth.AbstractBaseUser, models_auth.PermissionsMixin):
         auto_now_add=True,
     )
     USERNAME_FIELD = 'username'
+    objects = AppUserManager()
 
 
 class UserProfile(models.Model):

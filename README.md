@@ -1,10 +1,10 @@
-This is a FamPlan Poject. A simple DJango WebFramework Project, made by a rookie python developer.
+This is a FamPlan Project. A simple DDjango WebFramework Project, made by a rookie python developer.
 
-The main idea of the project is to manage the mounthly incomes and expenses of family useing web UI.
-It will integrete managment not only for a basic calucaltion of incomes and expenses, but also: 
+The main idea of the project is to manage the monthly incomes and expenses of family using web UI.
+It will integrate management not only for a basic calculation of incomes and expenses, but also: 
   - todo tasks;
-  - goals or achievments;
+  - goals or achievements;
   - statistics etc.
 
-Hope you will find it usefull what will make me very happy.
+Hope you will find it usefully what will make me very happy.
 @valvalvak 2022.

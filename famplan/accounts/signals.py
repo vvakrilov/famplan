@@ -1,8 +1,8 @@
+from django.contrib.auth import get_user_model
 from django.db.models import signals
 from django.dispatch import receiver
-from django.contrib.auth.models import User
 
-from .models import UserProfile
+from famplan.accounts.models import UserProfile
 
 '''
 Signals are used for:
@@ -12,13 +12,13 @@ Signals are used for:
     - Verification email
 '''
 
+UserModel = get_user_model()
 
-@receiver(signals.post_save, sender=User)
-def create_profile(sender, instance, created, **kwargs):
+
+@receiver(signals.post_save, sender=UserModel)
+def user_created(sender, instance, created, *args, **kwargs):
     if created:
-        UserProfile.objects.create(user=instance)
-
-
-@receiver(signals.post_save, sender=User)
-def save_profile(sender, instance, **kwargs):
-    instance.profile.save()
+        profile = UserProfile(
+            user=instance,
+        )
+        profile.save()

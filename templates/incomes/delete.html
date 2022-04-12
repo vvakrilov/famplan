@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'base/base.html' %}
 {% block content %}
-    <h1>Delete Expense</h1>
+    <h1>Delete income</h1>
     <div class="form">
         <form method="POST" action="{% url 'delete expense page' expense.pk %}">
             {% csrf_token %}

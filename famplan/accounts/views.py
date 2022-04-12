@@ -1,7 +1,4 @@
-from django.shortcuts import redirect, render
-
 from famplan.accounts.models import UserProfile
-from famplan.common.helpers import get_profile
 from famplan.common.view_mixins import RedirectToDashboard
 from django.views import generic as g_views
 from famplan.accounts.forms import CreateProfileForm, EditProfileForm, DeleteProfileForm

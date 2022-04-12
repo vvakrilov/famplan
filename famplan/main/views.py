@@ -1,30 +1,23 @@
-from django.shortcuts import render
+from django.views import generic as views
 
-from django import views
-
-from . import models as fund_models
+from famplan.main.models import Incomes, Expenses
 
 
 class IndexPage(views.View):
-    template_name = 'templates/index.html'
+    template_name = 'base/index.html'
 
 
 class IncomesListView(views.View):
-    model = fund_models.Incomes
-    template_name = 'main/incomes-list.html'
-    queryset = model.object.all()
+    model = Incomes
+    template_name = 'base/dashboard.html'
+    # queryset = model.object.all()
     context_object_name = 'incomes_list'
     paginate_by = 5
 
 
 class ExpensesListView(views.View):
-    model = fund_models.Expenses
-    template_name = 'main/expenses-list.html'
-    queryset = model.object.all()
+    model = Expenses
+    template_name = 'base/expenses-list.html'
+    # queryset = model.object.all()
     context_object_name = 'expenses_list'
     paginate_by = 5
-
-
-class FundsCalculationView(views.View):
-
-    pass

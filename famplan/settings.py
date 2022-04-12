@@ -115,7 +115,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.AppUser'
 
-LOGIN_URL = reverse_lazy('index')
+LOGIN_URL = reverse_lazy('login user')
 
 # PASSWORD_HASHERS = [
 #     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
