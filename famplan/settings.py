@@ -1,13 +1,10 @@
 from pathlib import Path
 
 from django.urls import reverse_lazy
-from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-
-SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = 'django-insecure-k##s*6=&3(uqg^!-byz%4b+%fgljwoz^hff+g%r(6+x0^-kr^a'
 
 DEBUG = True
 
