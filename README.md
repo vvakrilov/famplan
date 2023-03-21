@@ -7,4 +7,4 @@ It will integrate management not only for a basic calculation of incomes and exp
   - statistics etc.
 
 Hope you will find it usefully what will make me very happy.
-@valvalvak 2022.
+@vvakrilov 2022.
